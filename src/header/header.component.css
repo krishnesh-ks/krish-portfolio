@@ -23,10 +23,6 @@
     align-items: center;
     gap: 10px;
     display: flex;
+    
 }
 
-@media only screen and (min-width: 1440px) {
-.image-container{
-    right: 75.7% !important;
-}
-  }
