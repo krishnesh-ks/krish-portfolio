@@ -1,336 +1,739 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
-
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+<app-sidebar></app-sidebar>
+<app-header (headerChanged)="onHeaderChanged($event)"></app-header>
+@if(selectedTab === 'about'){
+<div style="display: flex;justify-content: center;margin-top: 100px;">
+  @if(light){
+  <img src="about-me.svg" alt="">
+  }
+  @if(!light){
+  <img src="about-black-full.svg" alt="">
   }
 
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--french-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3),
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
+</div>
+}
+<div style="position: absolute;right: 15%;top: 86px; cursor: pointer;">
+  <div (click)="modes()">
+    @if(light){
+    <img src="dark.svg" alt="">
     }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
+    @if(!light){
+    <img src="light.svg" alt="">
     }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
-    </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
-        }
+  </div>
+</div>
+@if(password){
+<div [style.background]="!light ? '#1D1B1B' : 'white'"
+  style="width: 1008px; height: 691px; padding: 20px; background: white; border-radius: 40px; flex-direction: column; justify-content: center; align-items: center; gap: 24px; display: inline-flex;position: absolute;left: 13%;top: 25%;">
+  <div data-svg-wrapper style="position: relative">
+    <svg width="82" height="83" viewBox="0 0 82 83" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M17.9377 34.8543V27.833C17.9377 21.7165 20.3675 15.8504 24.6925 11.5254C29.0176 7.2003 34.8836 4.77051 41.0002 4.77051C47.1167 4.77051 52.9827 7.2003 57.3078 11.5254C61.6329 15.8504 64.0627 21.7165 64.0627 27.833V34.8543C67.8722 35.1378 70.3493 35.8553 72.1636 37.6696C75.1668 40.6694 75.1668 45.504 75.1668 55.1663C75.1668 64.8287 75.1668 69.6633 72.1636 72.6631C69.1637 75.6663 64.3292 75.6663 54.6668 75.6663H27.3335C17.6712 75.6663 12.8366 75.6663 9.83675 72.6631C6.8335 69.6633 6.8335 64.8287 6.8335 55.1663C6.8335 45.504 6.8335 40.6694 9.83675 37.6696C11.6476 35.8553 14.1281 35.1378 17.9377 34.8543ZM23.0627 27.833C23.0627 23.0757 24.9525 18.5132 28.3164 15.1493C31.6804 11.7853 36.2428 9.89551 41.0002 9.89551C45.7575 9.89551 50.32 11.7853 53.6839 15.1493C57.0478 18.5132 58.9377 23.0757 58.9377 27.833V34.68C57.6302 34.6686 56.2066 34.6641 54.6668 34.6663H27.3335C25.7914 34.6641 24.3678 34.6686 23.0627 34.68V27.833ZM27.3335 58.583C28.2397 58.583 29.1087 58.223 29.7494 57.5823C30.3902 56.9415 30.7502 56.0725 30.7502 55.1663C30.7502 54.2602 30.3902 53.3911 29.7494 52.7504C29.1087 52.1096 28.2397 51.7497 27.3335 51.7497C26.4273 51.7497 25.5583 52.1096 24.9175 52.7504C24.2768 53.3911 23.9168 54.2602 23.9168 55.1663C23.9168 56.0725 24.2768 56.9415 24.9175 57.5823C25.5583 58.223 26.4273 58.583 27.3335 58.583ZM41.0002 58.583C41.9063 58.583 42.7754 58.223 43.4161 57.5823C44.0569 56.9415 44.4168 56.0725 44.4168 55.1663C44.4168 54.2602 44.0569 53.3911 43.4161 52.7504C42.7754 52.1096 41.9063 51.7497 41.0002 51.7497C40.094 51.7497 39.225 52.1096 38.5842 52.7504C37.9435 53.3911 37.5835 54.2602 37.5835 55.1663C37.5835 56.0725 37.9435 56.9415 38.5842 57.5823C39.225 58.223 40.094 58.583 41.0002 58.583ZM58.0835 55.1663C58.0835 56.0725 57.7235 56.9415 57.0828 57.5823C56.442 58.223 55.573 58.583 54.6668 58.583C53.7607 58.583 52.8916 58.223 52.2509 57.5823C51.6101 56.9415 51.2502 56.0725 51.2502 55.1663C51.2502 54.2602 51.6101 53.3911 52.2509 52.7504C52.8916 52.1096 53.7607 51.7497 54.6668 51.7497C55.573 51.7497 56.442 52.1096 57.0828 52.7504C57.7235 53.3911 58.0835 54.2602 58.0835 55.1663Z"
+        fill="#8A8A8A" />
+    </svg>
+  </div>
+  <div [style.color]="!light ? 'white' : 'black'"
+    style="color: black; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
+    This content is protected.</div>
+  <div [style.color]="!light ? 'white' : 'black'"
+    style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+    Enter Password Here</div>
+  <div
+    style="width: 476px; padding: 10px; background: white; box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 40px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+    <input placeholder="*******"
+      style="text-align:center;border: 1px solid white; width: 100%; color: #C1C1C1; font-size: 16px; font-family: Poppins; font-weight: 400; letter-spacing: 0.72px; word-wrap: break-word; outline: none;">
+    <!-- <div style="color: #C1C1C1; font-size: 16px; font-family: Poppins; font-weight: 400; letter-spacing: 0.72px; word-wrap: break-word">********</div> -->
+  </div>
+  <div [style.background]="!light ? '#525252' : '#EFEFEF'"
+    style="padding: 10px; background: #EFEFEF; border-radius: 40px; justify-content: center; align-items: center; gap: 10px; display: inline-flex;cursor: pointer;">
+    <div [style.color]="!light ? 'white' : 'black'"
+      style="color: black; font-size: 16px; font-family: Poppins; font-weight: 400; letter-spacing: 0.72px; word-wrap: break-word">
+      Enter</div>
+  </div>
+</div>
+}
+@if((selectedTab === 'home' ||selectedTab === 'caseStudies' || selectedTab === 'resume') && !password ){
+<div>
+  <div style="display: flex;justify-content: center;gap: 540px;margin-top: 90px;">
+    <div style="width: 395px;height: 226px;flex-direction: column;align-items: flex-start;position: relative;gap: 16px;right: 277px;display: inline-flex;
+      top: 42px;">
+      <div style="align-self: stretch"><span [style.color]="light ? 'black' : 'white'"
+          style="color: black; font-size: 55px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">Hi
+          I am <br /></span><span [style.color]="light ? 'black' : 'white'"
+          style="color: black; font-size: 55px; font-family: Poppins; font-weight: 600; letter-spacing: 0.72px; word-wrap: break-word">Krishnesh
+        </span><span
+          style="color: #FD8F48; font-size: 55px; font-family: Poppins; font-weight: 600; letter-spacing: 0.72px; word-wrap: break-word">KS</span>
       </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://twitter.com/angular"
-          aria-label="Twitter"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Twitter"
-          >
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
+      <div
+        style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex;width: 435px;">
+        <div [style.color]="light ? 'black' : 'white'"
+          style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+          Senior UI/UX Designer At Logicplum</div>
+        <div>
+          @if(!hover){
+          <img src="light-arrow.svg" alt="">
+          }
+          @if(hover){
+          <img src="black-arrow.svg" alt="">
+          }
+        </div>
+      </div>
+    </div>
+    <div class="image-container">
+      @for (item of images; track item.id) {
+      <img [src]="item.name" [class.active]="currentIndex === item.id" [class.hidden]="currentIndex !== item.id" />
+      }
+    </div>
+    @if(light){
+    <img style="position: absolute;z-index: 1;left: 50%;top: 214px;" src="open-work.svg" alt="">
+    }
+    @if(!light){
+    <img style="position: absolute;z-index: 1;left: 50%;top: 214px;" src="open-blck-wrk.svg" alt="">
+    }
+    @if(light){
+    <img style="position: absolute;top: 200px;" src="silver.svg" alt="">
+    }
+    @if(!light){
+    <img style="position: absolute;top: 200px;" src="black-bckrnd.svg" alt="">
+    }
+    @if(light){
+    <img class="krish-white"  src="Krish-white.svg" alt="Krish">
+    }
+    @if(!light){
+    <img class="krish-black" src="Krish-black.svg" alt="">
+    }
+
+  </div>
+  <div (click)="showPopup()" class="contact-me-rotate" >
+    <div style="width: 133px; height: 133px; left: 0px; top: 0px; position: absolute">
+      <div
+        style="width: 133px; height: 133px; left: 0px; top: 0px; position: absolute; border-radius: 9999px; backdrop-filter: blur(9px)">
+      </div>
+      <div
+        style="width: 123.22px; height: 82.04px; left: 7px; top: 4px; position: absolute; animation: rotateText 5s infinite linear;">
+        <img [lazyLoad]="'contact-me.svg'" [defaultImage]="'contact-me.svg'" class="rotating-image"
+          style="position: relative;right: 6px;bottom: 4px;" alt="">
+      </div>
+    </div>
+    <div style="left: 45px;top: 44px; position: absolute">
+      <img style="width: 45px;cursor: pointer;" src="upper-arrow.svg" alt="">
+    </div>
+  </div>
+  <div *ngIf="loaderPopuop" class="popup">
+    <div style="width: 133px; height: 133px; position: absolute;left: 46%;top: 35%;">
+      <div style="width: 133px; height: 133px; left: 0px; top: 0px; position: absolute">
+        <div
+          style="width: 133px; height: 133px; left: 0px; top: 0px; position: absolute; border-radius: 9999px; backdrop-filter: blur(9px)">
+        </div>
+        <div
+          style="width: 123.22px; height: 82.04px; left: 7px; position: absolute; animation: rotateText 5s infinite linear;">
+          <img [lazyLoad]="'contact-me.svg'" [defaultImage]="'contact-me.svg'" class="rotating-image"
+            style="position: relative;width: 310px;" alt="">
+        </div>
+      </div>
+      <div style="left: 109px;top: 103px;position: absolute;">
+        <img style="width: 96px;" src="upper-arrow.svg" alt="">
       </div>
     </div>
   </div>
-</main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <div *ngIf="popupVisible" class="popup" (click)="closePopup('blur')">
 
 
+    <section [style.background]="!light ? '#191414' : 'white'" class="contact" (click)="preventClose($event)">
+      <div [style.background]="!light ? 'black' : 'white'"
+        style="padding: 18px;margin-left: 15px;background: #ffffff;box-shadow: 0px -3px 4px rgba(0, 0, 0, 0.25);border-radius: 40px;justify-content: center;align-items: center;gap: 10px;display: inline-flex;position: absolute;z-index: 1;">
+        <div [style.color]="!light ? 'white' : 'black'"
+          style="color: #000000; font-size: 22px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
+          Reach Me</div>
+      </div>
+      <img style="position: absolute;margin-top:20px;" src="orange.svg" alt="">
+      <div
+        style="z-index:1;width: 626px; height: 152px;margin-left: 45px;margin-top: 100px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+        <div style="justify-content: center; align-items: flex-end; gap: 48px; display: inline-flex">
+          <div
+            style="color: white; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+            Phone : </div>
+          <div style="justify-content: center; align-items: center; gap: 12px; display: flex">
+            <div
+              style="color: white; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
+              +917025339035</div>
+            <div
+              style="padding: 8.41px; border-radius: 16.82px; justify-content: center; align-items: center; gap: 8.41px; display: flex">
+              <div style="width: 20.18px;height: 20.18px;position: relative;bottom: 9px;">
+                @if(light){
+                <img (click)="preventClose($event);phone('917025339035')" style="cursor: pointer;" src="up-arrow.svg"
+                  alt="">
+                }
+                @if(!light){
+                <img (click)="preventClose($event);phone('917025339035')" style="cursor: pointer;" src="blck-arrw.svg"
+                  alt="">
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="justify-content: center; align-items: flex-end; gap: 62px; display: inline-flex">
+          <div
+            style="color: white; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+            Email :</div>
+          <div style="justify-content: center; align-items: center; gap: 12px; display: flex">
+            <div
+              style="color: white; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
+              krishneshks.design gmail.com</div>
+            <div
+              style="padding: 8.41px; border-radius: 16.82px; justify-content: center; align-items: center; gap: 8.41px; display: flex">
+              <div style="width: 20.18px;height: 20.18px;position: relative;bottom: 9px;">
+                @if(light){
+                <img (click)="preventClose($event);link('917025339035')" style="cursor: pointer;" src="up-arrow.svg"
+                  alt="">
+                }
+                @if(!light){
+                <img (click)="preventClose($event);link('917025339035')" style="cursor: pointer;" src="blck-arrw.svg"
+                  alt="">
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="justify-content: flex-start; align-items: flex-start; gap: 35px; display: inline-flex">
+          <div
+            style="color: white; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+            LinkedIn :</div>
+          <div style="justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
+            <div
+              style="width: 420px; color: white; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
+              https://www.linkedin.com/in/krishnesh-ks-539600178/</div>
+            <div
+              style="padding: 8.41px; border-radius: 16.82px; justify-content: center; align-items: center; gap: 8.41px; display: flex">
+              <div style="width: 20.18px;height: 20.18px;position: relative;bottom: 12px;right:10px">
+                @if(light){
+                <img (click)="preventClose($event);navigateTo('https://www.linkedin.com/in/krishnesh-ks-539600178/')"
+                  style="cursor: pointer;" src="up-arrow.svg" alt="">
+                }
+                @if(!light){
+                <img (click)="preventClose($event);navigateTo('https://www.linkedin.com/in/krishnesh-ks-539600178/')"
+                  style="cursor: pointer;" src="blck-arrw.svg" alt="">
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-content">
+        <p [style.color]="light ? 'black' : 'white'" class="arrow-text">&gt;&gt;</p>
+        <div class="status-container">
+          @if(light){
+          <img src="telephone.svg" class="status-icon" alt="">
+          }
+          @if(!light){
+          <img src="white-telephone.svg" class="status-icon" alt="">
+          }
+          <div
+            style="width: 147px; height: 44px; padding: 10px; background: rgba(239, 239, 239, 0); border-radius: 40px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+            <div [style.color]="light ? 'black' : 'white'"
+              style="color: black; font-size: 16px; font-family: Poppins; font-weight: 400; letter-spacing: 0.72px; word-wrap: break-word">
+              No Closing</div>
+            <div style="width: 24px; height: 24px; position: relative">
+              <div style="width: 24px; height: 24px; left: 0px; top: 0px; position: absolute;"></div>
+              <div data-svg-wrapper style="left: 3px; top: 3px; position: absolute">
+                @if(light){
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12.3123 7.6155C12.6233 7.6155 12.8862 7.50658 13.101 7.28875C13.3157 7.07092 13.423 6.8065 13.423 6.4955C13.423 6.18433 13.3142 5.92142 13.0965 5.70675C12.8787 5.49192 12.6143 5.3845 12.3033 5.3845C11.9921 5.3845 11.7292 5.49342 11.5145 5.71125C11.2997 5.92908 11.1923 6.1935 11.1923 6.5045C11.1923 6.81567 11.3012 7.07858 11.519 7.29325C11.7367 7.50808 12.0011 7.6155 12.3123 7.6155ZM5.69675 7.6155C6.00792 7.6155 6.27083 7.50658 6.4855 7.28875C6.70033 7.07092 6.80775 6.8065 6.80775 6.4955C6.80775 6.18433 6.69883 5.92142 6.481 5.70675C6.26333 5.49192 5.99892 5.3845 5.68775 5.3845C5.37675 5.3845 5.11383 5.49342 4.899 5.71125C4.68433 5.92908 4.577 6.1935 4.577 6.5045C4.577 6.81567 4.68583 7.07858 4.9035 7.29325C5.12133 7.50808 5.38575 7.6155 5.69675 7.6155ZM9 13.8845C9.95383 13.8845 10.8323 13.6214 11.6355 13.0953C12.4388 12.5689 13.0424 11.8705 13.4462 11H4.55375C4.95758 11.8705 5.56117 12.5689 6.3645 13.0953C7.16767 13.6214 8.04617 13.8845 9 13.8845ZM9.00325 18C7.75875 18 6.58867 17.7638 5.493 17.2915C4.3975 16.8192 3.4445 16.1782 2.634 15.3685C1.8235 14.5588 1.18192 13.6067 0.70925 12.512C0.236417 11.4175 0 10.2479 0 9.00325C0 7.75875 0.236167 6.58867 0.7085 5.493C1.18083 4.3975 1.82183 3.4445 2.6315 2.634C3.44117 1.8235 4.39333 1.18192 5.488 0.70925C6.5825 0.236417 7.75208 0 8.99675 0C10.2413 0 11.4113 0.236167 12.507 0.708501C13.6025 1.18083 14.5555 1.82183 15.366 2.6315C16.1765 3.44117 16.8181 4.39333 17.2908 5.488C17.7636 6.5825 18 7.75208 18 8.99675C18 10.2413 17.7638 11.4113 17.2915 12.507C16.8192 13.6025 16.1782 14.5555 15.3685 15.366C14.5588 16.1765 13.6067 16.8181 12.512 17.2908C11.4175 17.7636 10.2479 18 9.00325 18ZM9 17C11.2333 17 13.125 16.225 14.675 14.675C16.225 13.125 17 11.2333 17 9C17 6.76667 16.225 4.875 14.675 3.325C13.125 1.775 11.2333 1 9 1C6.76667 1 4.875 1.775 3.325 3.325C1.775 4.875 1 6.76667 1 9C1 11.2333 1.775 13.125 3.325 14.675C4.875 16.225 6.76667 17 9 17Z"
+                    fill="#1C1B1F" />
+                </svg>
+                }
+                @if(!light){
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12.3123 7.6155C12.6233 7.6155 12.8862 7.50658 13.101 7.28875C13.3157 7.07092 13.423 6.8065 13.423 6.4955C13.423 6.18433 13.3142 5.92142 13.0965 5.70675C12.8787 5.49192 12.6143 5.3845 12.3033 5.3845C11.9921 5.3845 11.7292 5.49342 11.5145 5.71125C11.2997 5.92908 11.1923 6.1935 11.1923 6.5045C11.1923 6.81567 11.3012 7.07858 11.519 7.29325C11.7367 7.50808 12.0011 7.6155 12.3123 7.6155ZM5.69675 7.6155C6.00792 7.6155 6.27083 7.50658 6.4855 7.28875C6.70033 7.07092 6.80775 6.8065 6.80775 6.4955C6.80775 6.18433 6.69883 5.92142 6.481 5.70675C6.26333 5.49192 5.99892 5.3845 5.68775 5.3845C5.37675 5.3845 5.11383 5.49342 4.899 5.71125C4.68433 5.92908 4.577 6.1935 4.577 6.5045C4.577 6.81567 4.68583 7.07858 4.9035 7.29325C5.12133 7.50808 5.38575 7.6155 5.69675 7.6155ZM9 13.8845C9.95383 13.8845 10.8323 13.6214 11.6355 13.0953C12.4388 12.5689 13.0424 11.8705 13.4462 11H4.55375C4.95758 11.8705 5.56117 12.5689 6.3645 13.0953C7.16767 13.6214 8.04617 13.8845 9 13.8845ZM9.00325 18C7.75875 18 6.58867 17.7638 5.493 17.2915C4.3975 16.8192 3.4445 16.1782 2.634 15.3685C1.8235 14.5588 1.18192 13.6067 0.70925 12.512C0.236417 11.4175 0 10.2479 0 9.00325C0 7.75875 0.236167 6.58867 0.7085 5.493C1.18083 4.3975 1.82183 3.4445 2.6315 2.634C3.44117 1.8235 4.39333 1.18192 5.488 0.70925C6.5825 0.236417 7.75208 0 8.99675 0C10.2413 0 11.4113 0.236167 12.507 0.708501C13.6025 1.18083 14.5555 1.82183 15.366 2.6315C16.1765 3.44117 16.8181 4.39333 17.2908 5.488C17.7636 6.5825 18 7.75208 18 8.99675C18 10.2413 17.7638 11.4113 17.2915 12.507C16.8192 13.6025 16.1782 14.5555 15.3685 15.366C14.5588 16.1765 13.6067 16.8181 12.512 17.2908C11.4175 17.7636 10.2479 18 9.00325 18ZM9 17C11.2333 17 13.125 16.225 14.675 14.675C16.225 13.125 17 11.2333 17 9C17 6.76667 16.225 4.875 14.675 3.325C13.125 1.775 11.2333 1 9 1C6.76667 1 4.875 1.775 3.325 3.325C1.775 4.875 1 6.76667 1 9C1 11.2333 1.775 13.125 3.325 14.675C4.875 16.225 6.76667 17 9 17Z"
+                    fill="#FFFFFF" />
+                </svg>
+                }
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <p [style.color]="light ? 'black' : 'white'" class="arrow-text">&lt;&lt;</p>
+      </div>
+    </section>
+  </div>
+  <br>
+  <div class="why-me-height" >
+
+    @if(light){
+    <div (mouseenter)="stopAnimation()" [class.stopped]="isStopped" class="heartbeat-container"
+      (mouseenter)="startTyping()"
+      style="padding: 14px; background: linear-gradient(180deg, #E2E2E2 0%, #F4F4F4 100%); border-radius: 20px; border: 1px white solid; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+      <div
+        style="color: black; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
+        Why Me?</div>
+    </div>
+    }
+    @if(!light){
+    <div (mouseenter)="stopAnimation()" [class.stopped]="isStopped" class="heartbeat-container"
+      (mouseenter)="startTyping()">
+      <img src="why-me-black.svg" alt="">
+    </div>
+    }
+    @if(isStopped){
+    <div style="width: 805px; margin-right: 40px;">
+      @if(light){
+      <ng-container *ngFor="let segment of displayedSegments">
+        <span [style.color]="segment.color"
+          style="font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word;">{{
+          segment.text }} </span>
+      </ng-container>
+      }
+      @if(!light){
+      <ng-container *ngFor="let segment of displayedBlackSegments">
+        <span [style.color]="segment.color"
+          style="font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word;">{{
+          segment.text }} </span>
+      </ng-container>
+      }
+    </div>
+    }
+  </div>
+
+  <div style="display:flex;margin-top: 7%;justify-content:center;gap:30px;">
+    <div>
+      @if(light){
+      <img src="k-img.svg" alt="">
+      }
+      @if(!light){
+      <img src="k-black-image.svg" alt="">
+      }
+
+    </div>
+    <div>
+      <div [style.background]="!light ? '#1D1B1B' : 'white'"
+        style="width: 348px; padding: 20px; background: white; border-radius: 40px;flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+        <div
+          style="height: 244px; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
+          <div [style.background-image]="!light ? 'url(exp-black.svg)' : 'url(exp.svg)'"
+            style="width: 347px; height: 287px; position: relative; background-image: url(exp.svg);">
+            <div [style.background]="!light ? 'black' : '#F6F6F6'"
+              style="padding: 18px; left: 0px; top: -0.50px; position: absolute; background: #F6F6F6; border-radius: 40px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+              <div [style.color]="!light ? 'white' : 'black'"
+                style="color: black; font-size: 22px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
+                My Experience</div>
+            </div>
+          </div>
+        </div>
+        <div
+          [style.background]="!light ? 'none' : 'linear-gradient(0deg, white 0%, white 100%), linear-gradient(0deg, #F6F6F6 0%, #F6F6F6 100%);'"
+          style="width: 351px; height: 416px; position: relative; background: linear-gradient(0deg, white 0%, white 100%), linear-gradient(0deg, #F6F6F6 0%, #F6F6F6 100%); border-radius: 20px; overflow: hidden">
+
+          <div
+            style="top: -1.50px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 30px; display: inline-flex;cursor: all-scroll;">
+            <div [style.background]="!light ? '#222020' : '#f7f4f4'" class="timeline">
+              <ul>
+                <li *ngFor="let exp of experiences" [class.inactive]="!exp.active">
+                  <div class="dot"></div>
+                  <div class="content">
+                    <h3 [style.color]="!light ? 'white' : ''">{{ exp.title }}</h3>
+                    <p>{{ exp.duration }}</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div style="display:flex;margin-top: 7%;justify-content:center;gap:30px;">
+    <div [style.background]="!light ? 'rgb(29, 27, 27)' : 'white'"
+      style="width: 1002px;border-radius: 40px; height: 372px; padding: 20px;  justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
+      <div class="container">
+        <div class="content-2" [ngStyle]="{ 'background-color': light ? backgroundColor : blackbackgroundColor }">
+          <div [style.background]="!light ? 'black' : 'white'" [style.color]="light ? 'black' : 'white'"
+            class="title-box">How I Work</div>
+
+          <div class="step-title">
+            <span class="step-number">0{{ selectedStep }}</span>
+            <span class="step-text" [style.color]="light ? 'black' : 'white'"> {{titleFrame}}</span>
+          </div>
+
+          <div class="step-description">
+            @if(selectedStep === 1){
+            <div style="width: 651px"><span [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">Understand
+              </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">client</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+                goals, target </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">audience</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">,
+                and project </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">requirements</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+                through an </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">initial</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+                discussion.</span></div>
+            }
+            @if(selectedStep === 2){
+            <div style="width: 651px"><span [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">Conduct
+              </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">user
+                research</span><span [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">,
+                competitor analysis, and </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">gather
+                insights</span><span [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+                to define the </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">problem</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+                and </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">opportunities</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">.</span>
+            </div>
+            }
+            @if(selectedStep === 3){
+            <div style="width: 651px"><span [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">Brainstorm
+                and sketch initial </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">ideas</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">,
+                focusing on </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">user-centered
+                solutions</span><span [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+                and innovative approaches.</span></div>
+            }
+            @if(selectedStep === 4){
+            <div style="width: 651px"><span [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">Create
+              </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">low-fidelity</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+                wireframes and interactive </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">prototypes</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+                to visualize structure and </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">functionality</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">.</span>
+            </div>
+            }
+            @if(selectedStep === 5){
+            <div style="width: 651px"><span [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">Develop
+              </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">high-fidelity</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+                designs with attention to </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">aesthetics</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">,
+                branding, and </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">usability</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">.</span>
+            </div>
+            }
+            @if(selectedStep === 6){
+            <div style="width: 651px"><span [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">Conduct
+              </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">usability</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+                tests to gather </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">feedback</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">,
+              </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">iterate</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+                on designs, and refine for optimal user </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">experience</span><span
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">.</span>
+            </div>
+            }
+            @if(selectedStep === 7){
+            <div style="width: 651px"><span [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">Deliver
+              </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">finalised</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+                designs and provide </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">ongoing</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+                support to ensure smooth </span><span
+                style="color: #9B9B9B; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">implementation</span><span
+                [style.color]="!light ? 'white' : ''"
+                style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+                and success.</span></div>
+            }
+          </div>
+          <div [style.background]="light ? '#EFEFEF' : '#1C0909'" [style.color]="light ? 'black' : 'white'"
+            class="steps-container">
+            <div *ngFor="let step of steps" (click)="selectStep(step.id)" [ngStyle]="{
+                background: step.id === selectedStep 
+                  ? (light ? 'white' : 'black') 
+                  : (light ? 'rgb(239, 239, 239)' : 'rgb(28, 9, 9)'),
+                color: step.id === selectedStep 
+                  ? (light ? 'black' : 'white') 
+                  : ''}" [ngClass]="{'selected': step.id === selectedStep}" class="step-box">
+              {{ 'Step ' + step.id }}
+            </div>
+          </div>
+        </div>
+        <div>
+          @if(!light){
+          <img [src]="this.imageFrame" alt="">
+          }
+          @if(light){
+          <img [src]="this.imageWhiteFrame" alt="">
+          }
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;margin-top: 7%;justify-content:center;gap:30px;">
+    <div [style.background]="!light ? 'rgb(29, 27, 27)' : 'white'"
+      style="width: 1009px; height: 1538px; padding: 20px; background: white; border-radius: 40px;flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
+      <div [style.background]="!light ? 'black' : '#F6F6F6'"
+        style="padding: 18px; background: #F6F6F6; border-radius: 40px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+        <div [style.color]="!light ? 'white' : 'black'"
+          style="color: black; font-size: 22px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
+          Get Through Works</div>
+      </div>
+      <div style="display: flex;gap: 26px;">
+        <div class="col">
+          <div [style.background]="!light ? '#0A323B' : '#E0F8FE'"
+            style="width: 450px; height: 670px; padding: 20px; background: #E0F8FE; border-radius: 40px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex">
+            <div style="width: 427px; height: 671px; position: relative">
+              <div [style.color]="!light ? 'white' : 'black'"
+                style="width: 301px; left: 0px; top: 0px; position: absolute; color: black; font-size: 22px; font-family: Poppins; font-weight: 600; letter-spacing: 0.72px; word-wrap: break-word">
+                Construction Management App</div>
+              <div [style.color]="!light ? 'white' : 'black'"
+                style="width: 427px; left: 0px; top: 82px; position: absolute; color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+                Streamline projects with ease using the Construction Management App.</div>
+              <div
+                style="left: 0px; top: 200px; position: absolute; justify-content: flex-start; align-items: center; gap: 25px; display: inline-flex;width: 280px">
+                <div [style.color]="!light ? 'white' : 'black'"
+                  style="color: black; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
+                  Read Case Studies</div>
+                @if(light){
+                <img (click)="showPass()" src="arrow-right.svg" style="cursor: pointer;" alt="">
+                }
+                @if(!light){
+                <img (click)="showPass()" src="white-right-arrow.svg" style="cursor: pointer;" alt="">
+                }
+              </div>
+
+            </div>
+            <div>
+              <img style="position: relative;top: 135px;right: 3px;width: 438px;" src="case-1.svg" alt="">
+            </div>
+          </div>
+
+        </div>
+        <div class="col">
+          <div [style.background]="!light ? '#41320F' : '#FFF5DF'"
+            style="width: 450px; height: 670px; padding: 20px; background: #FFF5DF; border-radius: 40px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex">
+            <div style="width: 427px; height: 671px; position: relative">
+              <div [style.color]="!light ? 'white' : 'black'"
+                style="width: 427px; left: 0px; top: 0px; position: absolute; color: black; font-size: 22px; font-family: Poppins; font-weight: 600; letter-spacing: 0.72px; word-wrap: break-word">
+                Health Equipments B2B E-commerce Website</div>
+              <div [style.color]="!light ? 'white' : 'black'"
+                style="width: 427px; left: 0px; top: 84px; position: absolute; color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+                A B2B e-commerce platform for health equipment, designed to streamline business transactions.</div>
+              <div
+                style="left: 0px; top: 188px; position: absolute; justify-content: flex-start; align-items: center; gap: 25px; display: inline-flex;width: 280px;">
+                <div [style.color]="!light ? 'white' : 'black'"
+                  style="color: black; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
+                  Read Case Studies</div>
+                @if(light){
+                <img (click)="showPass()" src="arrow-right.svg" style="cursor: pointer;" alt="">
+                }
+                @if(!light){
+                <img (click)="showPass()" src="white-right-arrow.svg" style="cursor: pointer;" alt="">
+                }
+              </div>
+            </div>
+            <div>
+              <img style="position: relative;top: 135px;right: 3px;width: 438px;" src="we-care.svg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex;gap: 26px;">
+        <div class="col">
+          <div [style.background]="!light ? '#08152F' : '#EAF0FD'"
+            style="width: 450px; height: 670px; padding: 20px; background: #EAF0FD; border-radius: 40px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex">
+            <div style="width: 427px; height: 671px; position: relative">
+              <div [style.color]="!light ? 'white' : 'black'"
+                style="width: 412px; left: 0px; top: 0px; position: absolute; color: black; font-size: 22px; font-family: Poppins; font-weight: 600; letter-spacing: 0.72px; word-wrap: break-word">
+                Employee Management Web and MobApp</div>
+              <div [style.color]="!light ? 'white' : 'black'"
+                style="width: 427px; left: 0px; top: 93px; position: absolute; color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+                Develop an intuitive web and mobile application for efficient employee management.</div>
+              <div
+                style="left: 0px; top: 199px; position: absolute; justify-content: flex-start; align-items: center; gap: 25px; display: inline-flex;width: 280px">
+                <div [style.color]="!light ? 'white' : 'black'"
+                  style="color: black; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
+                  Read Case Studies</div>
+                @if(light){
+                <img (click)="showPass()" src="arrow-right.svg" style="cursor: pointer;" alt="">
+                }
+                @if(!light){
+                <img (click)="showPass()" src="white-right-arrow.svg" style="cursor: pointer;" alt="">
+                }
+              </div>
+            </div>
+            <div>
+              <div>
+                <img style="position: relative;top: 408px;right: 129px;height: 237px;" src="case-3-1.svg" alt="">
+                <img style="position: relative;top: 23px;height: 382px;left: 7px;" src="case-3-2.svg" alt="">
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div [style.background]="!light ? '#072B11' : '#F5FCF7'"
+            style="width: 450px; height: 670px; padding: 20px; background: #F5FCF7; border-radius: 40px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex">
+            <div style="width: 427px; height: 671px; position: relative">
+              <div [style.color]="!light ? 'white' : 'black'"
+                style="width: 254px; left: 0px; top: 0px; position: absolute; color: black; font-size: 22px; font-family: Poppins; font-weight: 600; letter-spacing: 0.72px; word-wrap: break-word">
+                Staff Management App - AI</div>
+              <div [style.color]="!light ? 'white' : 'black'"
+                style="width: 427px; left: 0px; top: 89px; position: absolute; color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+                Used with AI to streamline employee scheduling, performance forcast.</div>
+              <div
+                style="left: 0px; top: 200px; position: absolute; justify-content: flex-start; align-items: center; gap: 25px; display: inline-flex;width: 280px">
+                <div [style.color]="!light ? 'white' : 'black'"
+                  style="color: black; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
+                  Read Case Studies</div>
+                @if(light){
+                <img (click)="showPass()" src="arrow-right.svg" style="cursor: pointer;" alt="">
+                }
+                @if(!light){
+                <img (click)="showPass()" src="white-right-arrow.svg" style="cursor: pointer;" alt="">
+                }
+              </div>
+            </div>
+            <div>
+              <img style="position: relative;top: 135px;right: 3px;width: 438px;" src="case-4.svg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slider">
+    @if(light){
+    <div class="image-track">
+      <img src="move-1.svg" alt="Move 1">
+      <img src="move-2.svg" alt="Move 2">
+      <img src="move-3.svg" alt="Move 3">
+      <img src="move-4.svg" alt="Move 4">
+      <img src="move-5.svg" alt="Move 5">
+      <img src="move-6.svg" alt="Move 6">
+      <img src="move-7.svg" alt="Move 7">
+      <img src="move-8.svg" alt="Move 8">
+      <img src="move-9.svg" alt="Move 9">
+      <img src="move-10.svg" alt="Move 10">
+      <img src="move-1.svg" alt="Move 1">
+      <img src="move-2.svg" alt="Move 2">
+      <img src="move-3.svg" alt="Move 3">
+      <img src="move-4.svg" alt="Move 4">
+      <img src="move-5.svg" alt="Move 5">
+      <img src="move-6.svg" alt="Move 6">
+      <img src="move-7.svg" alt="Move 7">
+      <img src="move-8.svg" alt="Move 8">
+      <img src="move-9.svg" alt="Move 9">
+      <img src="move-10.svg" alt="Move 10">
+    </div>
+    }
+    @if(!light){
+    <div class="image-track">
+      <img src="move-black-1.svg" alt="Move 1">
+      <img src="move-black-2.svg" alt="Move 2">
+      <img src="move-black-3.svg" alt="Move 3">
+      <img src="move-black-4.svg" alt="Move 4">
+      <img src="move-black-5.svg" alt="Move 5">
+      <img src="move-black-6.svg" alt="Move 6">
+      <img src="move-black-7.svg" alt="Move 7">
+      <img src="move-black-8.svg" alt="Move 8">
+      <img src="move-black-9.svg" alt="Move 9">
+      <img src="move-black-10.svg" alt="Move 10">
+      <img src="move-black-1.svg" alt="Move 1">
+      <img src="move-black-2.svg" alt="Move 2">
+      <img src="move-black-3.svg" alt="Move 3">
+      <img src="move-black-4.svg" alt="Move 4">
+      <img src="move-black-5.svg" alt="Move 5">
+      <img src="move-black-6.svg" alt="Move 6">
+      <img src="move-black-7.svg" alt="Move 7">
+      <img src="move-black-8.svg" alt="Move 8">
+      <img src="move-black-9.svg" alt="Move 9">
+      <img src="move-black-10.svg" alt="Move 10">
+    </div>
+    }
+
+  </div>
+
+  <div
+    style="width: 1133px;height: 0px;border: 1px #efefef solid;margin-top: 50px;margin-bottom: 50px;position: relative;left: 8%;">
+  </div>
+  <div
+    style="width: 100%; height: 242.73px; flex-direction: column; justify-content: center; align-items: center; gap: 62px; display: inline-flex;margin-bottom: 100px;">
+    <div style="flex-direction: column; justify-content: flex-start; align-items: center; gap: 20px; display: flex">
+      <div [style.background]="!light ? 'black' : 'white'"
+        style="height: 44px; min-width: 178px; background: white; border-radius: 20px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+        <div [style.color]="!light ? 'white' : 'black'"
+          style="color: black; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
+          Lets Connect</div>
+      </div>
+      <div [style.color]="!light ? '#908E8E' : 'black'"
+        style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+        Feel free to reach out for collaborations or just a friendly hello 😀</div>
+      <div
+        style="color: #FD8F48; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
+        krishneshks.design&#64;gmail.com</div>
+    </div>
+    <div class="social-icons">
+      @if(light){
+      <div *ngFor="let icon of socialIcons" class="social-icon">
+        <img style="cursor: pointer;" [src]="icon.currentSrc" (mouseenter)="changeImage(icon, true)"
+          (mouseleave)="changeImage(icon, false)" (click)="navigateTo(icon.link)" alt="" />
+      </div>
+      }
+      @if(!light){
+      <div *ngFor="let icon of socialIcons" class="social-icon">
+        <img class="black-social" style="cursor: pointer;" [src]="icon.currentSrc" (click)="navigateTo(icon.link)"
+          alt="" />
+      </div>
+      }
+    </div>
+
+  </div>
+
+
+</div>
+}
 <router-outlet />

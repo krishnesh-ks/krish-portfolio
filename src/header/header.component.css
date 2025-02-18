@@ -1,0 +1,32 @@
+.cursor {
+    cursor: pointer;
+}
+
+.whiteSwitch {
+    padding: 10px;
+    cursor: pointer;
+    background: white ;
+    border-radius: 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    display: flex;
+    border: 1px #EFEFEF solid;
+}
+
+.greySwitch {
+    padding: 10px;
+    cursor: pointer;
+    background: #EFEFEF;
+    border-radius: 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    display: flex;
+}
+
+@media only screen and (min-width: 1440px) {
+.image-container{
+    right: 75.7% !important;
+}
+  }

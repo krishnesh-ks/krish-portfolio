@@ -1,0 +1,52 @@
+<div style="display: flex;justify-content: center;">
+  <div
+    style="width: 1008.15px; height: 63px; justify-content: space-between; align-items: flex-end; display: inline-flex">
+    <div style="width: 90px; height: 63px; position: relative">
+      <div
+      [style.color]="data ? 'white' : 'black'"  style="left: 0px; top: 0px; position: absolute; color: black; font-size: 41.85px; font-family: Poppins; font-weight: 500; letter-spacing: 0.50px; word-wrap: break-word">
+        DOK</div>
+      <div
+      [style.color]="data ? 'white' : 'black'"   style="left: 3px; top: 50px; position: absolute; color: black; font-size: 7.66px; font-family: Poppins; font-weight: 300; letter-spacing: 0.09px; word-wrap: break-word">
+        DESIGNS OF KRISHNESH</div>
+    </div>
+    <div style="justify-content: flex-start; align-items: center; gap: 10px; display: flex">
+      <div
+        [style.background]="selectedTab === 'home' && data ? '#371E1E' : (selectedTab === 'home' && !data ? 'white' : (data ? '#1C0909' : '#EFEFEF'))"
+        (click)="selectTab('home')"
+        style="padding: 10px; border-radius: 40px; justify-content: center; align-items: center; gap: 10px; display: flex">
+        <div [style.color]="data ? 'white' : 'black'"
+          style="color: black; cursor: pointer; font-size: 16px; font-family: Poppins; font-weight: 400; letter-spacing: 0.72px; word-wrap: break-word">
+          Home
+        </div>
+      </div>
+      <div
+        [style.background]="selectedTab === 'about' && data ? '#371E1E' : (selectedTab === 'about' && !data ? 'white' : (data ? '#1C0909' : '#EFEFEF'))"
+        (click)="selectTab('about')"
+        style="padding: 10px; cursor: pointer;  border-radius: 40px; justify-content: center; align-items: center; gap: 10px; display: flex">
+        <div [style.color]="data ? 'white' : 'black'"
+          style="color: black; font-size: 16px; font-family: Poppins; font-weight: 400; letter-spacing: 0.72px; word-wrap: break-word">
+          About
+        </div>
+      </div>
+      <div
+        [style.background]="selectedTab === 'caseStudies' && data ? '#371E1E' : (selectedTab === 'caseStudies' && !data ? 'white' : (data ? '#1C0909' : '#EFEFEF'))"
+        (click)="selectTab('caseStudies')"
+        style="padding: 10px; cursor: pointer;  border-radius: 40px; justify-content: center; align-items: center; gap: 10px; display: flex">
+        <div [style.color]="data ? 'white' : 'black'"
+          style="color: black; font-size: 16px; font-family: Poppins; font-weight: 400; letter-spacing: 0.72px; word-wrap: break-word">
+          Case Studies
+        </div>
+      </div>
+      <div
+        [style.background]="selectedTab === 'resume' && data ? '#371E1E' : (selectedTab === 'resume' && !data ? 'white' : (data ? '#1C0909' : '#EFEFEF'))"
+        (click)="selectTab('resume')"
+        style="padding: 10px; cursor: pointer; border-radius: 40px; justify-content: center; align-items: center; gap: 10px; display: flex">
+        <div [style.color]="data ? 'white' : 'black'"
+          style="color: black; font-size: 16px; font-family: Poppins; font-weight: 400; letter-spacing: 0.72px; word-wrap: break-word">
+          Resume
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+  </div>

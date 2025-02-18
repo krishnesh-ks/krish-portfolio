@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.white-mode{
+    background: #F6F6F6;
+    color: black;
+}
+.dark-mode {
+    background: #191414;
+    color: white;
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
