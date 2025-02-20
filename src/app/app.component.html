@@ -68,14 +68,6 @@
         <div [style.color]="light ? 'black' : 'white'"
           style="color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
           Senior UI/UX Designer At Logicplum</div>
-        <div>
-          @if(!hover){
-          <img src="light-arrow.svg" alt="">
-          }
-          @if(hover){
-          <img src="black-arrow.svg" alt="">
-          }
-        </div>
       </div>
     </div>
     <div class="image-container">
@@ -96,14 +88,14 @@
     <img style="position: absolute;top: 200px;" src="black-bckrnd.svg" alt="">
     }
     @if(light){
-    <img class="krish-white"  src="Krish-white.svg" alt="Krish">
+    <img class="krish-white" src="Krish-white.svg" alt="Krish">
     }
     @if(!light){
     <img class="krish-black" src="Krish-black.svg" alt="">
     }
 
   </div>
-  <div (click)="showPopup()" class="contact-me-rotate" >
+  <div (click)="showPopup()" class="contact-me-rotate">
     <div style="width: 133px; height: 133px; left: 0px; top: 0px; position: absolute">
       <div
         style="width: 133px; height: 133px; left: 0px; top: 0px; position: absolute; border-radius: 9999px; backdrop-filter: blur(9px)">
@@ -178,7 +170,7 @@
           <div style="justify-content: center; align-items: center; gap: 12px; display: flex">
             <div
               style="color: white; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
-              krishneshks.design gmail.com</div>
+              krishneshks.design&#64;gmail.com</div>
             <div
               style="padding: 8.41px; border-radius: 16.82px; justify-content: center; align-items: center; gap: 8.41px; display: flex">
               <div style="width: 20.18px;height: 20.18px;position: relative;bottom: 9px;">
@@ -227,31 +219,37 @@
           @if(!light){
           <img src="white-telephone.svg" class="status-icon" alt="">
           }
-          <div
+          <div (mouseenter)="showClose()"  
             style="width: 147px; height: 44px; padding: 10px; background: rgba(239, 239, 239, 0); border-radius: 40px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+           @if(!closing){ 
             <div [style.color]="light ? 'black' : 'white'"
               style="color: black; font-size: 16px; font-family: Poppins; font-weight: 400; letter-spacing: 0.72px; word-wrap: break-word">
               No Closing</div>
-            <div style="width: 24px; height: 24px; position: relative">
+           }
+            <div style="width: 24px; height: 24px; position: relative" >
               <div style="width: 24px; height: 24px; left: 0px; top: 0px; position: absolute;"></div>
               <div data-svg-wrapper style="left: 3px; top: 3px; position: absolute">
-                @if(light){
+                @if(light && !closing){
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M12.3123 7.6155C12.6233 7.6155 12.8862 7.50658 13.101 7.28875C13.3157 7.07092 13.423 6.8065 13.423 6.4955C13.423 6.18433 13.3142 5.92142 13.0965 5.70675C12.8787 5.49192 12.6143 5.3845 12.3033 5.3845C11.9921 5.3845 11.7292 5.49342 11.5145 5.71125C11.2997 5.92908 11.1923 6.1935 11.1923 6.5045C11.1923 6.81567 11.3012 7.07858 11.519 7.29325C11.7367 7.50808 12.0011 7.6155 12.3123 7.6155ZM5.69675 7.6155C6.00792 7.6155 6.27083 7.50658 6.4855 7.28875C6.70033 7.07092 6.80775 6.8065 6.80775 6.4955C6.80775 6.18433 6.69883 5.92142 6.481 5.70675C6.26333 5.49192 5.99892 5.3845 5.68775 5.3845C5.37675 5.3845 5.11383 5.49342 4.899 5.71125C4.68433 5.92908 4.577 6.1935 4.577 6.5045C4.577 6.81567 4.68583 7.07858 4.9035 7.29325C5.12133 7.50808 5.38575 7.6155 5.69675 7.6155ZM9 13.8845C9.95383 13.8845 10.8323 13.6214 11.6355 13.0953C12.4388 12.5689 13.0424 11.8705 13.4462 11H4.55375C4.95758 11.8705 5.56117 12.5689 6.3645 13.0953C7.16767 13.6214 8.04617 13.8845 9 13.8845ZM9.00325 18C7.75875 18 6.58867 17.7638 5.493 17.2915C4.3975 16.8192 3.4445 16.1782 2.634 15.3685C1.8235 14.5588 1.18192 13.6067 0.70925 12.512C0.236417 11.4175 0 10.2479 0 9.00325C0 7.75875 0.236167 6.58867 0.7085 5.493C1.18083 4.3975 1.82183 3.4445 2.6315 2.634C3.44117 1.8235 4.39333 1.18192 5.488 0.70925C6.5825 0.236417 7.75208 0 8.99675 0C10.2413 0 11.4113 0.236167 12.507 0.708501C13.6025 1.18083 14.5555 1.82183 15.366 2.6315C16.1765 3.44117 16.8181 4.39333 17.2908 5.488C17.7636 6.5825 18 7.75208 18 8.99675C18 10.2413 17.7638 11.4113 17.2915 12.507C16.8192 13.6025 16.1782 14.5555 15.3685 15.366C14.5588 16.1765 13.6067 16.8181 12.512 17.2908C11.4175 17.7636 10.2479 18 9.00325 18ZM9 17C11.2333 17 13.125 16.225 14.675 14.675C16.225 13.125 17 11.2333 17 9C17 6.76667 16.225 4.875 14.675 3.325C13.125 1.775 11.2333 1 9 1C6.76667 1 4.875 1.775 3.325 3.325C1.775 4.875 1 6.76667 1 9C1 11.2333 1.775 13.125 3.325 14.675C4.875 16.225 6.76667 17 9 17Z"
                     fill="#1C1B1F" />
                 </svg>
                 }
-                @if(!light){
+                @if(!light && !closing){
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M12.3123 7.6155C12.6233 7.6155 12.8862 7.50658 13.101 7.28875C13.3157 7.07092 13.423 6.8065 13.423 6.4955C13.423 6.18433 13.3142 5.92142 13.0965 5.70675C12.8787 5.49192 12.6143 5.3845 12.3033 5.3845C11.9921 5.3845 11.7292 5.49342 11.5145 5.71125C11.2997 5.92908 11.1923 6.1935 11.1923 6.5045C11.1923 6.81567 11.3012 7.07858 11.519 7.29325C11.7367 7.50808 12.0011 7.6155 12.3123 7.6155ZM5.69675 7.6155C6.00792 7.6155 6.27083 7.50658 6.4855 7.28875C6.70033 7.07092 6.80775 6.8065 6.80775 6.4955C6.80775 6.18433 6.69883 5.92142 6.481 5.70675C6.26333 5.49192 5.99892 5.3845 5.68775 5.3845C5.37675 5.3845 5.11383 5.49342 4.899 5.71125C4.68433 5.92908 4.577 6.1935 4.577 6.5045C4.577 6.81567 4.68583 7.07858 4.9035 7.29325C5.12133 7.50808 5.38575 7.6155 5.69675 7.6155ZM9 13.8845C9.95383 13.8845 10.8323 13.6214 11.6355 13.0953C12.4388 12.5689 13.0424 11.8705 13.4462 11H4.55375C4.95758 11.8705 5.56117 12.5689 6.3645 13.0953C7.16767 13.6214 8.04617 13.8845 9 13.8845ZM9.00325 18C7.75875 18 6.58867 17.7638 5.493 17.2915C4.3975 16.8192 3.4445 16.1782 2.634 15.3685C1.8235 14.5588 1.18192 13.6067 0.70925 12.512C0.236417 11.4175 0 10.2479 0 9.00325C0 7.75875 0.236167 6.58867 0.7085 5.493C1.18083 4.3975 1.82183 3.4445 2.6315 2.634C3.44117 1.8235 4.39333 1.18192 5.488 0.70925C6.5825 0.236417 7.75208 0 8.99675 0C10.2413 0 11.4113 0.236167 12.507 0.708501C13.6025 1.18083 14.5555 1.82183 15.366 2.6315C16.1765 3.44117 16.8181 4.39333 17.2908 5.488C17.7636 6.5825 18 7.75208 18 8.99675C18 10.2413 17.7638 11.4113 17.2915 12.507C16.8192 13.6025 16.1782 14.5555 15.3685 15.366C14.5588 16.1765 13.6067 16.8181 12.512 17.2908C11.4175 17.7636 10.2479 18 9.00325 18ZM9 17C11.2333 17 13.125 16.225 14.675 14.675C16.225 13.125 17 11.2333 17 9C17 6.76667 16.225 4.875 14.675 3.325C13.125 1.775 11.2333 1 9 1C6.76667 1 4.875 1.775 3.325 3.325C1.775 4.875 1 6.76667 1 9C1 11.2333 1.775 13.125 3.325 14.675C4.875 16.225 6.76667 17 9 17Z"
                     fill="#FFFFFF" />
                 </svg>
                 }
-
               </div>
             </div>
+            @if(close){
+              <div (click)="popupVisible = !popupVisible" style="margin-right: 20px;cursor:pointer" (mouseleave)="showClosing()"  >
+                <img src="close-hover.svg" alt="">
+              </div>
+            }         
           </div>
         </div>
         <p [style.color]="light ? 'black' : 'white'" class="arrow-text">&lt;&lt;</p>
@@ -259,7 +257,7 @@
     </section>
   </div>
   <br>
-  <div class="why-me-height" >
+  <div class="why-me-height">
 
     @if(light){
     <div (mouseenter)="stopAnimation()" [class.stopped]="isStopped" class="heartbeat-container"
@@ -332,7 +330,7 @@
                 <li *ngFor="let exp of experiences" [class.inactive]="!exp.active">
                   <div class="dot"></div>
                   <div class="content">
-                    <h3 [style.color]="!light ? 'white' : ''">{{ exp.title }}</h3>
+                    <span style="color: #000;font-family: Poppins;font-size: 20px;font-style: normal;font-weight: 500;line-height: normal;letter-spacing: 0.716px;" [style.color]="!light ? 'white' : ''">{{ exp.title }}</span>
                     <p>{{ exp.duration }}</p>
                   </div>
                 </li>
@@ -529,21 +527,27 @@
               <div [style.color]="!light ? 'white' : 'black'"
                 style="width: 301px; left: 0px; top: 0px; position: absolute; color: black; font-size: 22px; font-family: Poppins; font-weight: 600; letter-spacing: 0.72px; word-wrap: break-word">
                 Construction Management App</div>
-              <div [style.color]="!light ? 'white' : 'black'"
+              <div  [style.color]="!light ? 'white' : 'black'"
                 style="width: 427px; left: 0px; top: 82px; position: absolute; color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
                 Streamline projects with ease using the Construction Management App.</div>
-              <div
-                style="left: 0px; top: 200px; position: absolute; justify-content: flex-start; align-items: center; gap: 25px; display: inline-flex;width: 280px">
-                <div [style.color]="!light ? 'white' : 'black'"
-                  style="color: black; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
-                  Read Case Studies</div>
+                <div
+                style="cursor: pointer; left: 0px; top: 200px; position: absolute; justify-content: flex-start; align-items: center; gap: 25px; display: inline-flex; width: 280px;"
+                (mouseenter)="isHovered = true"
+                (mouseleave)="isHovered = false">
+                <div (click)="showPass()" [style.color]="!light ? 'white' : 'black'"
+                    style="color: black; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word; transition: transform 0.2s ease;"
+                    [style.transform]="isHovered ? 'scale(1.05)' : 'scale(1)'">
+                    Read Case Studies
+                </div>
                 @if(light){
-                <img (click)="showPass()" src="arrow-right.svg" style="cursor: pointer;" alt="">
+                <img (click)="showPass()" src="arrow-right.svg" style="cursor: pointer; transition: transform 0.2s ease;" alt=""
+                    [style.transform]="isHovered ? 'scale(1.1)' : 'scale(1)'">
                 }
                 @if(!light){
-                <img (click)="showPass()" src="white-right-arrow.svg" style="cursor: pointer;" alt="">
+                <img (click)="showPass()" src="white-right-arrow.svg" style="cursor: pointer; transition: transform 0.2s ease;" alt=""
+                    [style.transform]="isHovered ? 'scale(1.1)' : 'scale(1)'">
                 }
-              </div>
+            </div>
 
             </div>
             <div>
@@ -562,18 +566,24 @@
               <div [style.color]="!light ? 'white' : 'black'"
                 style="width: 427px; left: 0px; top: 84px; position: absolute; color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
                 A B2B e-commerce platform for health equipment, designed to streamline business transactions.</div>
-              <div
-                style="left: 0px; top: 188px; position: absolute; justify-content: flex-start; align-items: center; gap: 25px; display: inline-flex;width: 280px;">
-                <div [style.color]="!light ? 'white' : 'black'"
-                  style="color: black; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
-                  Read Case Studies</div>
+                <div
+                style="cursor: pointer; left: 0px; top: 200px; position: absolute; justify-content: flex-start; align-items: center; gap: 25px; display: inline-flex; width: 280px;"
+                (mouseenter)="isHovered2 = true"
+                (mouseleave)="isHovered2 = false">
+                <div (click)="showPass()" [style.color]="!light ? 'white' : 'black'"
+                    style="color: black; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word; transition: transform 0.2s ease;"
+                    [style.transform]="isHovered2 ? 'scale(1.05)' : 'scale(1)'">
+                    Read Case Studies
+                </div>
                 @if(light){
-                <img (click)="showPass()" src="arrow-right.svg" style="cursor: pointer;" alt="">
+                <img (click)="showPass()" src="arrow-right.svg" style="cursor: pointer; transition: transform 0.2s ease;" alt=""
+                    [style.transform]="isHovered2 ? 'scale(1.1)' : 'scale(1)'">
                 }
                 @if(!light){
-                <img (click)="showPass()" src="white-right-arrow.svg" style="cursor: pointer;" alt="">
+                <img (click)="showPass()" src="white-right-arrow.svg" style="cursor: pointer; transition: transform 0.2s ease;" alt=""
+                    [style.transform]="isHovered2 ? 'scale(1.1)' : 'scale(1)'">
                 }
-              </div>
+            </div>
             </div>
             <div>
               <img style="position: relative;top: 135px;right: 3px;width: 438px;" src="we-care.svg" alt="">
@@ -592,18 +602,24 @@
               <div [style.color]="!light ? 'white' : 'black'"
                 style="width: 427px; left: 0px; top: 93px; position: absolute; color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
                 Develop an intuitive web and mobile application for efficient employee management.</div>
-              <div
-                style="left: 0px; top: 199px; position: absolute; justify-content: flex-start; align-items: center; gap: 25px; display: inline-flex;width: 280px">
-                <div [style.color]="!light ? 'white' : 'black'"
-                  style="color: black; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
-                  Read Case Studies</div>
+                <div
+                style="cursor: pointer; left: 0px; top: 200px; position: absolute; justify-content: flex-start; align-items: center; gap: 25px; display: inline-flex; width: 280px;"
+                (mouseenter)="isHovered3 = true"
+                (mouseleave)="isHovered3 = false">
+                <div (click)="showPass()" [style.color]="!light ? 'white' : 'black'"
+                    style="color: black; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word; transition: transform 0.2s ease;"
+                    [style.transform]="isHovered3 ? 'scale(1.05)' : 'scale(1)'">
+                    Read Case Studies
+                </div>
                 @if(light){
-                <img (click)="showPass()" src="arrow-right.svg" style="cursor: pointer;" alt="">
+                <img (click)="showPass()" src="arrow-right.svg" style="cursor: pointer; transition: transform 0.2s ease;" alt=""
+                    [style.transform]="isHovered3 ? 'scale(1.1)' : 'scale(1)'">
                 }
                 @if(!light){
-                <img (click)="showPass()" src="white-right-arrow.svg" style="cursor: pointer;" alt="">
+                <img (click)="showPass()" src="white-right-arrow.svg" style="cursor: pointer; transition: transform 0.2s ease;" alt=""
+                    [style.transform]="isHovered3 ? 'scale(1.1)' : 'scale(1)'">
                 }
-              </div>
+            </div>
             </div>
             <div>
               <div>
@@ -624,18 +640,24 @@
               <div [style.color]="!light ? 'white' : 'black'"
                 style="width: 427px; left: 0px; top: 89px; position: absolute; color: black; font-size: 20px; font-family: Poppins; font-weight: 300; letter-spacing: 0.72px; word-wrap: break-word">
                 Used with AI to streamline employee scheduling, performance forcast.</div>
-              <div
-                style="left: 0px; top: 200px; position: absolute; justify-content: flex-start; align-items: center; gap: 25px; display: inline-flex;width: 280px">
-                <div [style.color]="!light ? 'white' : 'black'"
-                  style="color: black; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
-                  Read Case Studies</div>
+                <div
+                style="cursor: pointer; left: 0px; top: 200px; position: absolute; justify-content: flex-start; align-items: center; gap: 25px; display: inline-flex; width: 280px;"
+                (mouseenter)="isHovered4 = true"
+                (mouseleave)="isHovered4 = false">
+                <div (click)="showPass()" [style.color]="!light ? 'white' : 'black'"
+                    style="color: black; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word; transition: transform 0.2s ease;"
+                    [style.transform]="isHovered4 ? 'scale(1.05)' : 'scale(1)'">
+                    Read Case Studies
+                </div>
                 @if(light){
-                <img (click)="showPass()" src="arrow-right.svg" style="cursor: pointer;" alt="">
+                <img (click)="showPass()" src="arrow-right.svg" style="cursor: pointer; transition: transform 0.2s ease;" alt=""
+                    [style.transform]="isHovered4 ? 'scale(1.1)' : 'scale(1)'">
                 }
                 @if(!light){
-                <img (click)="showPass()" src="white-right-arrow.svg" style="cursor: pointer;" alt="">
+                <img (click)="showPass()" src="white-right-arrow.svg" style="cursor: pointer; transition: transform 0.2s ease;" alt=""
+                    [style.transform]="isHovered4 ? 'scale(1.1)' : 'scale(1)'">
                 }
-              </div>
+            </div>
             </div>
             <div>
               <img style="position: relative;top: 135px;right: 3px;width: 438px;" src="case-4.svg" alt="">
@@ -703,8 +725,8 @@
   <div
     style="width: 100%; height: 242.73px; flex-direction: column; justify-content: center; align-items: center; gap: 62px; display: inline-flex;margin-bottom: 100px;">
     <div style="flex-direction: column; justify-content: flex-start; align-items: center; gap: 20px; display: flex">
-      <div [style.background]="!light ? 'black' : 'white'"
-        style="height: 44px; min-width: 178px; background: white; border-radius: 20px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+      <div (click)="showPopup()" [style.background]="!light ? 'black' : 'white'"
+        style="height: 44px;cursor:pointer; min-width: 178px; background: white; border-radius: 20px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
         <div [style.color]="!light ? 'white' : 'black'"
           style="color: black; font-size: 20px; font-family: Poppins; font-weight: 500; letter-spacing: 0.72px; word-wrap: break-word">
           Lets Connect</div>

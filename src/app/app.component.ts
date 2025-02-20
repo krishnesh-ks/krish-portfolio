@@ -14,6 +14,10 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
 export class AppComponent implements OnInit {
   selectedTab = 'home';
   popupVisible: boolean = false;
+  isHovered = false;
+  isHovered2 = false;
+  isHovered3 = false;
+  isHovered4 = false;
   title = 'krish-portfolio';
   light = true;
   hover = false;
@@ -24,6 +28,8 @@ export class AppComponent implements OnInit {
   imageFrame = 'Black 1.svg';
   imageWhiteFrame = 'White 1.svg';
   password = false;
+  close = false;
+  closing = false;
   
   titleFrame = 'Discovery Call';
   sub = 'Understand client goals, target audience, and project requirements through an initial discussion.';
@@ -128,7 +134,7 @@ export class AppComponent implements OnInit {
       } else {
         clearInterval(this.interval); // Stop animation at the last image
       }
-    }, 500);
+    }, 180);
   }
   modes() {
     this.light = !this.light;
@@ -209,7 +215,9 @@ export class AppComponent implements OnInit {
   }
 
   showPopup(): void {
-    this.loaderPopuop = true
+    this.loaderPopuop = true;
+    this.close = false;
+    this.closing = false;
     setTimeout(() => {
       this.popupVisible = true;
       this.loaderPopuop = false
@@ -247,6 +255,14 @@ showPass(){
   this.password = true;
   window.scrollTo(0, 0); 
   this.dataService.updatePass('pass')
+}
+showClose(){
+  this.close = true;
+  this.closing = true;
+}
+showClosing(){
+this.closing = false;
+this.close = false;
 }
 }
 
