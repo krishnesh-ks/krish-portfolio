@@ -9,6 +9,7 @@ import { SharedService } from '../app/shared.service';
 })
 export class SidebarComponent implements OnInit {
   data: string = '';
+  dark = false;
   constructor(private dataService: SharedService) {}
   ngOnInit() {
     this.dataService.data$.subscribe(data => {
@@ -16,6 +17,9 @@ export class SidebarComponent implements OnInit {
     });
     this.dataService.data3$.subscribe(data => {
       this.data = data; 
+    }); 
+    this.dataService.data2$.subscribe(data => {
+      this.dark = data; 
     }); 
   }
 }
