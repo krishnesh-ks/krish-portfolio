@@ -252,9 +252,10 @@ export class AppComponent implements OnInit {
 }
 
 showPass(){
-  this.password = true;
-  window.scrollTo(0, 0); 
-  this.dataService.updatePass('pass')
+  window.open('https://www.behance.net/krishnesh_ks');
+  // this.password = true;
+  // window.scrollTo(0, 0); 
+  // this.dataService.updatePass('pass')
 }
 showClose(){
   this.close = true;

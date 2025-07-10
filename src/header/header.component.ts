@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
     this.headerChanged.emit(this.selectedTab);
     this.dataService.updateData(this.selectedTab);
     if(tab === 'caseStudies'){
-      window.open('https://docs.google.com/presentation/d/1M5sOVmLIDVYU8Ft5Xu6ckbcszsWYaukck3fuHPHBXWA/edit#slide=id.g1838cf7cb1e_2_75');
+      window.open('https://www.behance.net/krishnesh_ks');
     }
     if(tab === 'resume'){
       window.open(' https://drive.google.com/file/d/1AgSwMWDRQlHZifdeyII2r-3Wy_yEWkxb/view');
